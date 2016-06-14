@@ -1,0 +1,24 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="row">
+    <h1>活動列表</h1><h4>目前有 {{activities|length}} 個活動</h4>
+    {% for r in activities %}
+    <div class="col-md-6">
+        <h2><strong>{{ r.title }}</strong></h2>
+        <h4>{{ r.address }}</h4>
+        <p>
+        <!-- <img src="" alt="{{ r.title }}"> -->
+        <br>
+            {{ r.content|truncatewords:"15" }}
+        </p>
+        <p>
+        <a class="btn btn-default" href="###">詳細 &raquo;</a>
+        <a class="btn btn-primary" href='apply/?act_id={{ r.id }}'>報名 &raquo;</a>
+        </p>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ page.title }}</h2>
+
+<div class="row">
+    <h4>目前有 {{activities|length}} 個活動</h4>
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>標題</th>
+            <th>時間</th>
+            <th>地址</th>
+            <th>價格</th>
+            <th>報名截止日期</th>
+            <th>操作</th>
+        </tr>
+        {% for r in activities %}
+        <tr>
+            <td>{{ r.title }}</td>
+            <td>{{ r.date }}</td>
+            <td>{{ r.address }}</td>
+            <td>${{ r.price }}</td>
+            <td>{{ r.deadline }}</td>
+            <td>
+            	<a class="btn btn-primary" href="###">詳細 &raquo;</a>
+            	<a class="btn btn-warning" href="###">修改 &raquo;</a>
+            	<a class="btn btn-danger" href="###">取消 &raquo;</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
