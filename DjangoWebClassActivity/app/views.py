@@ -18,6 +18,7 @@ def home(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
     activities = Activity.objects.all()
+    now = datetime.now()
     page = {
             'title':'Home Page',
             'year':datetime.now().year,
